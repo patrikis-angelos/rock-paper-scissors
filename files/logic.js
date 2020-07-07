@@ -4,21 +4,37 @@ let numberOfRounds = 3;
 let playerScore = 0;
 let computerScore = 0;
 
-Game(numberOfRounds);
-console.log(playerScore + " - " + computerScore);
-(playerScore > computerScore)?console.log("Winner!!"):console.log("You can try again");
+let player = document.getElementById("choice");
 
 function Game(rounds)
 {
-    while (playerScore + computerScore < rounds)
+    if (playerScore + computerScore < rounds)
     {
         computerChoice = ComputerPlay();
-        playerChoice = prompt("Choose");
+        playerChoice = player.value;
         playerChoice = playerChoice.toLowerCase();
 
         console.log(playerChoice + " vs " + computerChoice);
         CheckDraw();
     }
+
+    if (playerScore + computerScore === rounds)
+    {
+        ShowResults();
+        ResetScore();
+    }
+}
+
+function ShowResults()
+{
+    console.log(playerScore + " - " + computerScore);
+    (playerScore > computerScore)?console.log("Winner!!"):console.log("You can try again");
+}
+
+function ResetScore()
+{
+    playerScore = 0;
+    computerScore = 0;
 }
 
 function CheckDraw()
