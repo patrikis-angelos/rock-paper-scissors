@@ -6,7 +6,35 @@
     </head>
     <body>
         <script>
-            
+            function ComputerPlay()
+            {
+                let randomPick = Math.floor(PickRandom(3));
+                let choice;
+                switch (randomPick)
+                {
+                    case 0:
+                        choice = "rock";
+                        break;
+                    case 1:
+                        choice = "paper";
+                        break;
+                    case 2:
+                        choice = "scissors";
+                        break;
+                    default:
+                        console.log("Invalid Choice");
+
+                }
+
+                console.log(choice);
+            }
+
+            function PickRandom(number)
+            {
+                return Math.random()*number;
+            }
+
+            ComputerPlay();
         </script>
     </body>
 </html>
