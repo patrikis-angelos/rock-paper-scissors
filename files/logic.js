@@ -1,13 +1,15 @@
 let computerChoice;
 let playerChoice;
-let numberOfRounds = 0;
+let numberOfRounds = 3;
 let playerScore = 0;
 let computerScore = 0;
 
 let player = document.getElementById("choice");
 let pickButton = document.getElementById("pickButton");
+let radioButtons = document.getElementById("rounds").children;
 
 pickButton.onclick=function(){
+    DisableButtons();
     Game(numberOfRounds);
 }
 
@@ -27,6 +29,7 @@ function Game(rounds)
     {
         ShowResults();
         ResetScore();
+        EnableButtons();
     }
 }
 
@@ -34,6 +37,22 @@ function ChangeRounds(rounds)
 {
     numberOfRounds = rounds;
     console.log("Rounds: " + rounds)
+}
+
+function DisableButtons()
+{
+    for (let i = 0; i < radioButtons.length; i += 2)
+    {
+        radioButtons[i].disabled = true;
+    }
+}
+
+function EnableButtons()
+{
+    for (let i=0; i< radioButtons.length; i += 2)
+    {
+        radioButtons[i].disabled = false;
+    }
 }
 
 function ShowResults()
