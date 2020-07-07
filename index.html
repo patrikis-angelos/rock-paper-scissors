@@ -10,8 +10,16 @@
 
         </header>
         <main>
+            <div>
+                <input onclick="ChangeRounds(3)" id="3" type="radio" name="rounds" value="3">
+                <label for="3" >3</label>
+                <input onclick="ChangeRounds(5)" id="5" type="radio" name="rounds" value="5">
+                <label for="5">5</label>
+                <input onclick="ChangeRounds(7)" id="7" type="radio" name="rounds" value="7">
+                <label for="7">7</label>
+            </div>
             <input id="choice" type="text" placeholder="Rock,Paper,Scissors">
-            <button onclick="Game(3)">Pick</button>
+            <button id="pickButton">Pick</button>
         </main>
         <footer>
 

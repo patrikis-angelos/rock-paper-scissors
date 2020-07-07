@@ -1,10 +1,15 @@
 let computerChoice;
 let playerChoice;
-let numberOfRounds = 3;
+let numberOfRounds = 0;
 let playerScore = 0;
 let computerScore = 0;
 
 let player = document.getElementById("choice");
+let pickButton = document.getElementById("pickButton");
+
+pickButton.onclick=function(){
+    Game(numberOfRounds);
+}
 
 function Game(rounds)
 {
@@ -23,6 +28,12 @@ function Game(rounds)
         ShowResults();
         ResetScore();
     }
+}
+
+function ChangeRounds(rounds)
+{
+    numberOfRounds = rounds;
+    console.log("Rounds: " + rounds)
 }
 
 function ShowResults()
