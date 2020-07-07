@@ -6,6 +6,68 @@
     </head>
     <body>
         <script>
+            let computerChoice;
+            let playerChoice;
+            let numberOfRounds = 3;
+            let playerScore = 0;
+            let computerScore = 0;
+            
+            while (playerScore + computerScore < numberOfRounds)
+            {
+                computerChoice = ComputerPlay();
+                playerChoice = prompt("Choose");
+                playerChoice = playerChoice.toLowerCase();
+
+                console.log(playerChoice + " vs " + computerChoice);
+                CheckDraw();
+            }
+
+            console.log(playerScore + " - " + computerScore);
+            (playerScore > computerScore)?console.log("Winner!!"):console.log("You can try again");
+
+            function CheckDraw()
+            {
+                if (computerChoice === playerChoice)
+                {
+                    console.log("Draw");
+                }
+                else
+                {
+                    CheckWinner();
+                }
+            }
+
+            function CheckWinner()
+            {
+                switch (playerChoice)
+                {
+                    case "rock":
+                        (computerChoice === "scissors")?Win():Lose();
+                        break;
+                    case "paper":
+                        (computerChoice === "rock")?Win():Lose();
+                        break;
+                    case "scissors":
+                        (computerChoice === "paper")?Win():Lose();
+                        break;
+                    default:
+                        console.log("Non Valid Choice");
+                        break;
+                }
+            }
+
+            function Win()
+            {
+                playerScore += 1;
+                console.log("You Win!");
+            }
+
+            function Lose()
+            {
+                computerScore += 1;
+                console.log("You Lose :(");
+            }
+
             function ComputerPlay()
             {
                 let randomPick = Math.floor(PickRandom(3));
@@ -25,8 +87,7 @@
                         console.log("Invalid Choice");
 
                 }
-
-                console.log(choice);
+                return choice;
             }
 
             function PickRandom(number)
@@ -34,7 +95,6 @@
                 return Math.random()*number;
             }
 
-            ComputerPlay();
         </script>
     </body>
 </html>
